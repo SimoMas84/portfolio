@@ -70,7 +70,7 @@ body {
    THEME VARIABLES (Switchable)
    ======================================== */
 
-/* :root {
+:root {
   --bg-primary: var(--color-light-bg);
   --bg-surface: var(--color-light-surface);
   --text-primary: var(--color-light-text-primary);
@@ -86,7 +86,7 @@ body {
   --text-secondary: var(--color-dark-text-secondary);
   --border-color: var(--color-dark-border);
   --accent: var(--color-dark-accent);
-} */
+}
 
 /* ========================================
    THEME-AWARE UTILITY CLASSES
