@@ -1,26 +1,358 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  background-color: #000000;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  /* Light mode gradient */
+   background-color: #8bb3e8; /*← Fallback light  */
+  background-image: linear-gradient(
+  to bottom,
+    #8bb3e8 0%,   /* Più scuro */
+    #9b88d4 25%,  /* Più scuro */
+    #b894d8 50%,  /* Più scuro */
+    #9b88d4 75%,  /* Più scuro */
+    #8bb3e8 100%  /* Più scuro */
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Dark mode gradient */
+[data-theme='dark'] body {
+  background-color: #000000; /* ← Fallback dark */
+  background-image: linear-gradient(
+    to bottom,
+    #000000 0%,
+    #160e27 25%,
+    #0f1b2d 50%,
+    #060030 75%,
+    #000000 100%
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* ← Importante per Firefox! */
+}
+
+@theme {
+  /* Colors Light Mode */
+  --color-light-bg: #ffffff;
+  --color-light-surface: #ffffff;
+  --color-light-text-primary: #1f2937;
+  --color-light-text-secondary: #4b5563;
+  --color-light-border: #e5e7eb;
+  --color-light-accent: #3b82f6;
+
+  /* Colors Dark Mode */
+  --color-dark-bg: #0f172a;
+  --color-dark-surface: #1e293b;
+  --color-dark-text-primary: #f1f5f9;
+  --color-dark-text-secondary: #cbd5e1;
+  --color-dark-border: #526277;
+  --color-dark-accent: #60a5fa;
+
+  /* Font Family */
+  --font-family-sans: 'inter', system-ui, sans-serif;
+}
+
+/* ========================================
+   THEME VARIABLES (Switchable)
+   ======================================== */
+
+/* :root {
+  --bg-primary: var(--color-light-bg);
+  --bg-surface: var(--color-light-surface);
+  --text-primary: var(--color-light-text-primary);
+  --text-secondary: var(--color-light-text-secondary);
+  --border-color: var(--color-light-border);
+  --accent: var(--color-light-accent);
+}
+
+[data-theme='dark'] {
+  --bg-primary: var(--color-dark-bg);
+  --bg-surface: var(--color-dark-surface);
+  --text-primary: var(--color-dark-text-primary);
+  --text-secondary: var(--color-dark-text-secondary);
+  --border-color: var(--color-dark-border);
+  --accent: var(--color-dark-accent);
+} */
+
+/* ========================================
+   THEME-AWARE UTILITY CLASSES
+   ======================================== */
+
+@utility bg-light-bg {
+  background-color: var(--bg-primary);
+}
+
+@utility bg-light-surface {
+  background-color: var(--bg-surface);
+}
+
+@utility text-light-primary {
+  color: var(--text-primary);
+}
+
+@utility text-light-secondary {
+  color: var(--text-secondary);
+}
+
+@utility text-light-accent {
+  color: var(--accent);
+}
+
+@utility border-light {
+  border-color: var(--border-color);
+}
+
+/* ========================================
+   LOADING ANIMATIONS
+   ======================================== */
+
+/* Main container breathe effect */
+.logo-container {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* Bracket left - slides in + continuous float */
+.logo-bracket-left {
+  animation: 
+    slideFromLeft 0.6s ease-out forwards,
+    floatLeft 2s ease-in-out 0.8s infinite;
+}
+
+/* Bracket right - slides in + continuous float */
+.logo-bracket-right {
+  animation: 
+    slideFromRight 0.6s ease-out forwards,
+    floatRight 2s ease-in-out 0.8s infinite;
+}
+
+/* Letter S - slides in + bounce */
+.logo-letter-s {
+  opacity: 0;
+  animation: 
+    slideFromTop 0.5s ease-out 0.2s forwards,
+    bounceS 2s ease-in-out 0.8s infinite;
+}
+
+/* Letter M - slides in + bounce */
+.logo-letter-m {
+  opacity: 0;
+  animation: 
+    slideFromBottom 0.5s ease-out 0.3s forwards,
+    bounceM 2s ease-in-out 0.8s infinite;
+}
+
+/* Glow ring */
+.logo-glow-ring {
+  opacity: 0;
+  box-shadow: 0 0 60px rgba(59, 130, 246, 0.5);
+  animation: glowPulse 2s ease-in-out 0.6s infinite;
+}
+
+/* Loading dots */
+.loading-text .dot {
+  display: inline-block;
+  opacity: 0;
+  animation: dotAppear 1.5s ease-in-out infinite;
+}
+
+.loading-text .dot-1 {
+  animation-delay: 0s;
+}
+
+.loading-text .dot-2 {
+  animation-delay: 0.3s;
+}
+
+.loading-text .dot-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes dotAppear {
+  0%, 100% {
+    opacity: 0;
+  }
+  30%, 70% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotate(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes floatLeft {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+@keyframes floatRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes bounceS {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes bounceM {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 12rem);
+  line-height: 1.1;
+}
+
+/* ========================================
+   PAGE TITLE
+   ======================================== */
+
+.page-title {
+  font-size: clamp(3.5rem, 6vw, 6rem);
+}
+
+.page-subtitle {
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+}
+
+/* ========================================
+   NO SCROLLBAR
+   ======================================== */
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================================
+   TOAST ANIMATION
+   ======================================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* ========================================
+   SCROLL ANIMATIONS
+   ======================================== */
+
+/* Nascondi elementi che saranno animati da GSAP */
+.gsap-reveal {
+  opacity: 0;
+}
+
+/* Dopo che GSAP ha finito, rimuovi la classe */
+.gsap-reveal-complete {
+  opacity: 1;
 }
