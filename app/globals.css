@@ -295,7 +295,7 @@ body {
    ======================================== */
 
 .hero-title {
-  font-size: clamp(3rem, 8vw, 12rem);
+  font-size: clamp(3rem, 7vw, 10rem);
   line-height: 1.1;
 }
 
