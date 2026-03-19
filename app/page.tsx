@@ -29,17 +29,65 @@ export default function Home() {
     gsap.set(roleRef.current, { opacity: 0 });
 
     // --- SCRAMBLE ANIMATION on "Web Developer" ---
+    // Hide role text initially
+    gsap.set(roleRef.current, { opacity: 0 });
+
+    // Katakana characters for matrix effect
+    const katakana = "ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ";
+    const finalText = "Web Developer";
+
+    // Scramble letter by letter with 2 fake chars before revealing the real one
     const scramble = () => {
-      gsap.to(roleRef.current, { opacity: 1, duration: 0.1 });
-      gsap.to(roleRef.current, {
-        duration: 1.0,
-        scrambleText: {
-          text: "Web Developer",
-          chars: "!@#$%^&*",
-          speed: 0.1,
-        },
-        ease: "none",
-      });
+      if (!roleRef.current) return;
+
+      // Make element visible
+      gsap.set(roleRef.current, { opacity: 1 });
+
+      let currentText = " ".repeat(finalText.length);
+      let charIndex = 0;
+      let scrambleCount = 0;
+
+      const revealNextChar = () => {
+        if (charIndex >= finalText.length) return;
+
+        // Show a random katakana char
+        const randomKatakana1 =
+          katakana[Math.floor(Math.random() * katakana.length)];
+        const randomKatakana2 =
+          katakana[Math.floor(Math.random() * katakana.length)];
+
+        // Step 1: show first fake char
+        currentText =
+          finalText.slice(0, charIndex) +
+          randomKatakana1 +
+          " ".repeat(finalText.length - charIndex - 1);
+        if (roleRef.current) roleRef.current.textContent = currentText;
+
+        setTimeout(() => {
+          // Step 2: show second fake char
+          currentText =
+            finalText.slice(0, charIndex) +
+            randomKatakana2 +
+            " ".repeat(finalText.length - charIndex - 1);
+          if (roleRef.current) roleRef.current.textContent = currentText;
+
+          setTimeout(() => {
+            // Step 3: reveal real char
+            currentText =
+              finalText.slice(0, charIndex + 1) +
+              " ".repeat(finalText.length - charIndex - 1);
+            if (roleRef.current) roleRef.current.textContent = currentText;
+
+            charIndex++;
+            scrambleCount = 0;
+
+            // Move to next character
+            setTimeout(revealNextChar, 60);
+          }, 40);
+        }, 40);
+      };
+
+      revealNextChar();
     };
 
     // --- LOGO ANIMATION ---
@@ -55,7 +103,7 @@ export default function Home() {
 
     // Floating loop
     gsap.to(logoRef.current, {
-      y: -10,
+      y: -20,
       duration: 2,
       ease: "power1.inOut",
       yoyo: true,
@@ -79,7 +127,8 @@ export default function Home() {
         splitName.chars,
         {
           opacity: 0,
-          y: 20,
+          scale: 1.5,
+          y: -30,
           duration: 0.08,
           stagger: 0.06,
           ease: "power2.out",
@@ -90,7 +139,8 @@ export default function Home() {
       // Animate letters of "Massaccesi"
       tl.from(splitSurname.chars, {
         opacity: 0,
-        y: 20,
+        scale: 1.5,
+        y: -30,
         duration: 0.08,
         stagger: 0.06,
         ease: "power2.out",
@@ -100,7 +150,7 @@ export default function Home() {
       tl.call(scramble, [], "+=0.2");
 
       // Loop scramble every 20 seconds
-      interval = setInterval(scramble, 20000);
+      interval = setInterval(scramble, 10000);
     });
 
     // Cleanup on unmount or pathname change
@@ -117,8 +167,8 @@ export default function Home() {
   }, [pathname, isTransitioning]);
 
   return (
-    <main className="relative max-w-[2560px] min-h-[calc(100dvh-100px)] mx-auto px-4 lg:px-16">
-      <div className="flex flex-col xl:flex-row items-center justify-center gap-12 xl:gap-[6dvw] text-center xl:text-left min-h-[calc(100vh-80px)] xl:px-16">
+    <div className="-my-40 relative max-w-[2560px] mx-auto px-4 lg:px-16">
+      <div className="flex flex-col xl:flex-row items-center justify-center xl:gap-[10dvw] text-center xl:text-left min-h-[calc(100dvh-100px)] xl:px-16">
         {/* Logo */}
         <div className="order-1 xl:order-2 flex-shrink-0 w-[50vw] min-w-[200px] max-w-[300px] xl:w-[400px] xl:max-w-[26vw] 2xl:w-[600px]">
           <div ref={logoRef} className="relative aspect-square cursor-default">
@@ -128,7 +178,7 @@ export default function Home() {
 
         {/* Text */}
         <div className="order-2 xl:order-1 flex-shrink-0 space-y-2 xl:space-y-4">
-          <h1 className="font-bold leading-tight hero-title">
+          <h1 className="leading-tight hero-title">
             <span ref={nameRef} className="block text-blue-500">
               Simone
             </span>
@@ -140,13 +190,13 @@ export default function Home() {
           <div className="relative h-[1.5em] w-full">
             <p
               ref={roleRef}
-              className="absolute left-1/2 -translate-x-1/2 xl:left-0 xl:translate-x-0 text-light-primary hero-title whitespace-nowrap"
+              className="absolute left-1/2 -translate-x-1/2 xl:left-0 xl:translate-x-0 text-light-primary hero-title whitespace-nowrap font-jetbrains"
             >
               Web Developer
             </p>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Poppins, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -88,9 +88,16 @@ export const metadata: Metadata = {
 // Font Configuration
 // ============================================
 
-const inter = Inter({
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-jetbrains",
 });
 
 // ============================================
@@ -116,7 +123,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className}`}>
+      <body className={`${poppins.className} ${jetbrainsMono.variable}`}>
         {/* Theme initialization script */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
 
@@ -125,10 +132,14 @@ export default function RootLayout({
           <TransitionProvider>
             <ParticlesBackground />
             <Navbar />
-            <PageTransition>{children}</PageTransition>
-            <Footer />
+            <PageTransition>
+              <main className="relative mx-auto max-w-[2560px] px-4 lg:px-16 py-40 min-h-[calc(100dvh-100px)]">
+                {children}
+              </main>
+            </PageTransition>
           </TransitionProvider>
         </ThemeProvider>
+        <Footer />
       </body>
     </html>
   );
