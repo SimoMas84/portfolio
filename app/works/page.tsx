@@ -32,28 +32,31 @@ const projects: Project[] = [
   {
     id: 2,
     title: "Nuovo Centro Ricambi",
-    description: "Website for commercial vehicle spare parts warehouse",
+    description:
+      "Restyling and refactoring website for commercial vehicle spare parts warehouse",
     image: "/works/nuovo-centro-ricambi.jpg",
     url: "https://nuovocentroricambi.vercel.app",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "Motion"],
+    technologies: ["Next.js", "TypeScript", "Tailwind"],
   },
   {
     id: 3,
     title: "Caffè Millennium",
-    description: "Website for local bar with menu and events",
+    description:
+      "Restyling and refactoring website for local bar with menu and events",
     image: "/works/caffe-millennium.jpg",
     url: "https://caffemillennium.vercel.app",
     technologies: ["Next.js", "TypeScript", "Tailwind", "Motion", "GSAP"],
   },
 
-  // {
-  //   id: 4,
-  //   title: "CinemApp",
-  //   description: "Application for movies and TV series",
-  //   image: "/works/img-placeholder.jpg",
-  //   url: "https://placehold.co/600x400",
-  //   technologies: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
-  // },
+  {
+    id: 4,
+    title: "MovieApp",
+    description:
+      "App database for movies and series. User management,favorites and watchlists. Real-time updates via Supabase Realtime.",
+    image: "/works/movieapp.jpg",
+    url: "https://movieapp.it",
+    technologies: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
+  },
 ];
 
 // ============================================
@@ -72,7 +75,7 @@ export default function Works() {
   });
 
   return (
-    <main className="relative min-h-[calc(100vh-100px)] max-w-[2560px] mx-auto px-4 lg:px-16 py-40">
+    <>
       {/* Header - Centered */}
       <div className="text-center mb-12 lg:mb-20 max-w-5xl mx-auto">
         {/* Title with animation */}
@@ -110,6 +113,6 @@ export default function Works() {
           />
         ))}
       </div>
-    </main>
+    </>
   );
 }

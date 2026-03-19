@@ -58,7 +58,7 @@ export default function Skills() {
   });
 
   return (
-    <main className="relative min-h-[calc(100vh-100px)] max-w-[2560px] mx-auto px-4 lg:px-16 py-40">
+    <>
       {/* Header - Centered */}
       <div className="text-center mb-12 lg:mb-16 max-w-5xl mx-auto">
         {/* Title with animation */}
@@ -96,6 +96,6 @@ export default function Skills() {
           />
         ))}
       </div>
-    </main>
+    </>
   );
 }

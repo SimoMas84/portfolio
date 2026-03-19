@@ -26,7 +26,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
         ease: "easeInOut",
       }}
     >
-      {children}
+      <div key={pathname}>{children}</div>
     </motion.div>
   );
 }

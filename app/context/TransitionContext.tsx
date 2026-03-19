@@ -47,7 +47,7 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
         // Reset state after a brief delay to allow new page to mount
         setTimeout(() => {
           setIsTransitioning(false);
-        }, 50);
+        }, 100);
       }, TRANSITION_DURATION);
     },
     [router],

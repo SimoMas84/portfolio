@@ -65,7 +65,7 @@ export default function Experience() {
   });
 
   return (
-    <main className="relative mx-auto max-w-[2560px] px-4 lg:px-16 py-40 min-h-[calc(100dvh-100px)]">
+    <>
       {/* Header */}
       <div className="text-center mb-12 lg:mb-20">
         <h1
@@ -111,6 +111,6 @@ export default function Experience() {
           ))}
         </div>
       </div>
-    </main>
+    </>
   );
 }

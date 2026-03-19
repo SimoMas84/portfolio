@@ -5,8 +5,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="pb-2">
-      <div className="max-w-4xl mx-auto px-4">
+    <footer>
+      <div className="h-[100px] max-w-4xl mx-auto">
         {/* Social Links */}
         <div className="flex items-center justify-center gap-6 mb-6">
           <Link
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
 
         {/* Policy Links */}
-        <div className="flex items-center justify-center gap-4 mb-4">
+        <div className="flex items-center justify-center gap-4">
           <Link
             href="/privacy"
             className="text-xs text-light-secondary hover:text-light-primary transition-colors hover:underline"
@@ -56,7 +56,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="text-center text-xs text-light-secondary">
+        <p className="text-center text-xs text-light-secondary p-2">
           © {currentYear} Simone Massaccesi. All rights reserved.
         </p>
       </div>
