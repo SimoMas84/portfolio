@@ -68,11 +68,8 @@ export default function Experience() {
     <>
       {/* Header */}
       <div className="text-center mb-12 lg:mb-20">
-        <h1
-          ref={titleRef as any}
-          className="font-bold mb-4 leading-tight page-title"
-        >
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <h1 ref={titleRef as any} className="mb-4 leading-tight page-title">
+          <span className="gradient-brand bg-clip-text text-transparent">
             Experience
           </span>
         </h1>
@@ -84,7 +81,7 @@ export default function Experience() {
       {/* Timeline Container */}
       <div className="relative max-w-6xl mx-auto">
         {/* Vertical Line */}
-        <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 opacity-50" />
+        <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bottom-0 w-0.5 gradient-brand-vertical opacity-50" />
 
         {/* Card Container */}
         <div ref={timelineRef as any} className="flex flex-col gap-8 pl-8">
@@ -95,7 +92,7 @@ export default function Experience() {
             >
               {/* Line Dot */}
               <div
-                className={`absolute -left-[2.45rem] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 border-4 border-white 
+                className={`absolute -left-[2.45rem] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full gradient-brand border-4 border-white 
                 ${index % 2 === 0 ? "lg:left-auto lg:right-[0.5rem]" : "lg:-left-[1.50rem]"}`}
               />
 

@@ -60,6 +60,10 @@ body {
   --color-dark-border: #526277;
   --color-dark-accent: #60a5fa;
 
+  /* Brand Gradient */
+  --gradient-brand: linear-gradient(to right, #3455ff, #96b1f8, #6bcbc6);
+  --gradient-brand-vertical: linear-gradient(to bottom, #3455ff, #96b1f8, #6bcbc6);
+
   /* Font Family */
   --font-jetbrains: var(--font-jetbrains);
 }
@@ -112,6 +116,13 @@ body {
 
 @utility border-light {
   border-color: var(--border-color);
+}
+
+@utility gradient-brand {
+  background-image: var(--gradient-brand);
+}
+@utility gradient-brand-vertical {
+  background-image: var(--gradient-brand-vertical);
 }
 
 /* ========================================

@@ -64,9 +64,9 @@ export default function Skills() {
         {/* Title with animation */}
         <h1
           ref={titleRef as any}
-          className="font-bold mb-4 lg:mb-4 leading-tight page-title"
+          className="mb-4 lg:mb-4 leading-tight page-title"
         >
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <span className="gradient-brand bg-clip-text text-transparent">
             Skills
           </span>
         </h1>

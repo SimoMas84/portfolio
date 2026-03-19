@@ -79,11 +79,8 @@ export default function Works() {
       {/* Header - Centered */}
       <div className="text-center mb-12 lg:mb-20 max-w-5xl mx-auto">
         {/* Title with animation */}
-        <h1
-          ref={titleRef as any}
-          className="font-bold mb-4 leading-tight page-title"
-        >
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <h1 ref={titleRef as any} className="mb-4 leading-tight page-title">
+          <span className="gradient-brand bg-clip-text text-transparent">
             Works
           </span>
         </h1>
