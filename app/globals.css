@@ -13,14 +13,14 @@ body {
   overflow-x: hidden;
   position: relative;
   /* Light mode gradient */
-   background-color: #8bb3e8; /*← Fallback light  */
+  background-color: #8bb3e8; /* ← Fallback light */
   background-image: linear-gradient(
-  to bottom,
-    #8bb3e8 0%,   /* Più scuro */
-    #9b88d4 25%,  /* Più scuro */
-    #b894d8 50%,  /* Più scuro */
-    #9b88d4 75%,  /* Più scuro */
-    #8bb3e8 100%  /* Più scuro */
+    to bottom,
+    #8bb3e8 0%,
+    #9b88d4 25%,
+    #b894d8 50%,
+    #9b88d4 75%,
+    #8bb3e8 100%
   );
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -49,7 +49,7 @@ body {
   --color-light-surface: #ffffff;
   --color-light-text-primary: #1f2937;
   --color-light-text-secondary: #4b5563;
-  --color-light-border: #e5e7eb;
+  --color-light-border: rgba(255, 255, 255, 0.15);
   --color-light-accent: #3b82f6;
 
   /* Colors Dark Mode */
@@ -57,7 +57,7 @@ body {
   --color-dark-surface: #1e293b;
   --color-dark-text-primary: #f1f5f9;
   --color-dark-text-secondary: #cbd5e1;
-  --color-dark-border: #526277;
+  --color-dark-border: rgba(255, 255, 255, 0.15);
   --color-dark-accent: #60a5fa;
 
   /* Brand Gradient */
@@ -121,182 +121,13 @@ body {
 @utility gradient-brand {
   background-image: var(--gradient-brand);
 }
+
 @utility gradient-brand-vertical {
   background-image: var(--gradient-brand-vertical);
 }
 
-/* ========================================
-   LOADING ANIMATIONS
-   ======================================== */
-
-/* Main container breathe effect */
-.logo-container {
-  animation: breathe 3s ease-in-out infinite;
-}
-
-/* Bracket left - slides in + continuous float */
-.logo-bracket-left {
-  animation: 
-    slideFromLeft 0.6s ease-out forwards,
-    floatLeft 2s ease-in-out 0.8s infinite;
-}
-
-/* Bracket right - slides in + continuous float */
-.logo-bracket-right {
-  animation: 
-    slideFromRight 0.6s ease-out forwards,
-    floatRight 2s ease-in-out 0.8s infinite;
-}
-
-/* Letter S - slides in + bounce */
-.logo-letter-s {
-  opacity: 0;
-  animation: 
-    slideFromTop 0.5s ease-out 0.2s forwards,
-    bounceS 2s ease-in-out 0.8s infinite;
-}
-
-/* Letter M - slides in + bounce */
-.logo-letter-m {
-  opacity: 0;
-  animation: 
-    slideFromBottom 0.5s ease-out 0.3s forwards,
-    bounceM 2s ease-in-out 0.8s infinite;
-}
-
-/* Glow ring */
-.logo-glow-ring {
-  opacity: 0;
-  box-shadow: 0 0 60px rgba(59, 130, 246, 0.5);
-  animation: glowPulse 2s ease-in-out 0.6s infinite;
-}
-
-/* Loading dots */
-.loading-text .dot {
-  display: inline-block;
-  opacity: 0;
-  animation: dotAppear 1.5s ease-in-out infinite;
-}
-
-.loading-text .dot-1 {
-  animation-delay: 0s;
-}
-
-.loading-text .dot-2 {
-  animation-delay: 0.3s;
-}
-
-.loading-text .dot-3 {
-  animation-delay: 0.6s;
-}
-
-@keyframes dotAppear {
-  0%, 100% {
-    opacity: 0;
-  }
-  30%, 70% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px) scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-@keyframes slideFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px) scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-@keyframes slideFromTop {
-  from {
-    opacity: 0;
-    transform: translateY(-30px) rotate(-10deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(0deg);
-  }
-}
-
-@keyframes slideFromBottom {
-  from {
-    opacity: 0;
-    transform: translateY(30px) rotate(10deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(0deg);
-  }
-}
-
-@keyframes floatLeft {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-5px);
-  }
-}
-
-@keyframes floatRight {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-}
-
-@keyframes bounceS {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-
-@keyframes bounceM {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-}
-
-@keyframes breathe {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes glowPulse {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.2);
-  }
+@utility font-jetbrains {
+  font-family: var(--font-jetbrains);
 }
 
 /* ========================================
@@ -304,7 +135,7 @@ body {
    ======================================== */
 
 .hero-title {
-  font-size: clamp(3rem, 8vw, 11rem);
+  font-size: clamp(2.5rem, 7vw, 10rem);
   line-height: 1.1;
 }
 
@@ -356,12 +187,10 @@ html {
    SCROLL ANIMATIONS
    ======================================== */
 
-/* Nascondi elementi che saranno animati da GSAP */
 .gsap-reveal {
   opacity: 0;
 }
 
-/* Dopo che GSAP ha finito, rimuovi la classe */
 .gsap-reveal-complete {
   opacity: 1;
 }

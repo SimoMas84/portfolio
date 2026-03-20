@@ -45,7 +45,7 @@ const projects: Project[] = [
       "Restyling and refactoring website for local bar with menu and events",
     image: "/works/caffe-millennium.jpg",
     url: "https://caffemillennium.vercel.app",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "Motion", "GSAP"],
+    technologies: ["Next.js", "TypeScript", "Tailwind"],
   },
 
   {

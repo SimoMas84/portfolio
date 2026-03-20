@@ -52,12 +52,6 @@ export default function ParticlesBackground() {
       canvas.height = documentHeight;
     };
 
-    // const resizeCanvas = () => {
-    //   canvas.width = window.innerWidth;
-    //   // Use visualViewport if available (Safari fix)
-    //   canvas.height = window.visualViewport?.height || window.innerHeight;
-    // };
-
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 

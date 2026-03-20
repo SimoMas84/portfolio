@@ -11,6 +11,7 @@ import {
   SiReact,
   SiNodedotjs,
   SiNextdotjs,
+  SiPostgresql,
   SiGit,
   SiGithub,
 } from "react-icons/si";
@@ -35,9 +36,10 @@ const skills: Skill[] = [
   { icon: SiTailwindcss, name: "Tailwind", level: 75 },
   { icon: SiJavascript, name: "JavaScript", level: 70 },
   { icon: SiTypescript, name: "TypeScript", level: 60 },
+  { icon: SiNextdotjs, name: "Next.js", level: 75 },
   { icon: SiReact, name: "React", level: 80 },
   { icon: SiNodedotjs, name: "Node.js", level: 60 },
-  { icon: SiNextdotjs, name: "Next.js", level: 75 },
+  { icon: SiPostgresql, name: "PostgreSQL", level: 75 },
   { icon: SiGit, name: "Git", level: 70 },
   { icon: SiGithub, name: "GitHub", level: 70 },
 ];

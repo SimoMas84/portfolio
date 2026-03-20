@@ -20,7 +20,6 @@ export default function TransitionLink({
   const { startTransition, isTransitioning } = useTransition();
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    // Non fare nulla se siamo già sulla stessa pagina o se c'è una transizione in corso
     if (href === pathname || isTransitioning) return;
 
     e.preventDefault();
