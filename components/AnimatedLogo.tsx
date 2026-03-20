@@ -16,8 +16,6 @@ export default function AnimatedLogo({ onComplete }: AnimatedLogoProps) {
 
   const superioreRef = useRef<HTMLDivElement>(null);
   const inferioreRef = useRef<HTMLDivElement>(null);
-  const sRef = useRef<HTMLDivElement>(null);
-  const mRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isTransitioning) return;
@@ -27,58 +25,29 @@ export default function AnimatedLogo({ onComplete }: AnimatedLogoProps) {
     // --- INITIAL STATE ---
     gsap.set(superioreRef.current, { x: -250, opacity: 0 });
     gsap.set(inferioreRef.current, { x: 250, opacity: 0 });
-    gsap.set([sRef.current, mRef.current], { opacity: 0 });
 
     // --- ANIMATION SEQUENCE ---
 
-    // Step 1: top piece slides from left, bottom from right simultaneously
+    // Top piece slides from left, bottom from right simultaneously
     tl.to(superioreRef.current, {
       x: 0,
       opacity: 1,
       duration: 1.2,
       ease: "back.out(1.4)",
-    })
-      .to(
-        inferioreRef.current,
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "back.out(1.4)",
-        },
-        "<",
-      )
-
-      // Step 2: S fades in
-      .to(
-        sRef.current,
-        {
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.out",
-        },
-        "-=0.1",
-      )
-
-      // Step 3: M fades in after S
-      .to(
-        mRef.current,
-        {
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.out",
-        },
-        "+=0.00",
-      );
+    }).to(
+      inferioreRef.current,
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "back.out(1.4)",
+      },
+      "<",
+    );
 
     return () => {
       tl.kill();
-      gsap.killTweensOf([
-        superioreRef.current,
-        inferioreRef.current,
-        sRef.current,
-        mRef.current,
-      ]);
+      gsap.killTweensOf([superioreRef.current, inferioreRef.current]);
     };
   }, [pathname, isTransitioning, onComplete]);
 
@@ -90,9 +59,9 @@ export default function AnimatedLogo({ onComplete }: AnimatedLogoProps) {
           src="/images/logo/superiore.png"
           alt=""
           fill
-          className="object-contain"
           priority
           sizes="(max-width: 1280px) 250px, (max-width: 1535px) 300px, 400px"
+          className="object-contain"
         />
       </div>
 
@@ -102,33 +71,33 @@ export default function AnimatedLogo({ onComplete }: AnimatedLogoProps) {
           src="/images/logo/inferiore.png"
           alt=""
           fill
-          className="object-contain"
           priority
           sizes="(max-width: 1280px) 250px, (max-width: 1535px) 300px, 400px"
+          className="object-contain"
         />
       </div>
 
       {/* Letter S */}
-      <div ref={sRef} className="absolute inset-0">
+      <div className="absolute inset-0">
         <Image
           src="/images/logo/s.png"
           alt=""
           fill
-          className="object-contain"
           priority
           sizes="(max-width: 1280px) 250px, (max-width: 1535px) 300px, 400px"
+          className="object-contain"
         />
       </div>
 
       {/* Letter M */}
-      <div ref={mRef} className="absolute inset-0">
+      <div className="absolute inset-0">
         <Image
           src="/images/logo/m.png"
           alt=""
           fill
-          className="object-contain"
           priority
           sizes="(max-width: 1280px) 250px, (max-width: 1535px) 300px, 400px"
+          className="object-contain"
         />
       </div>
     </div>
