@@ -91,6 +91,8 @@ export default function AnimatedLogo({ onComplete }: AnimatedLogoProps) {
           alt=""
           fill
           className="object-contain"
+          priority
+          sizes="(max-width: 1280px) 250px, (max-width: 1535px) 300px, 400px"
         />
       </div>
 
@@ -101,6 +103,8 @@ export default function AnimatedLogo({ onComplete }: AnimatedLogoProps) {
           alt=""
           fill
           className="object-contain"
+          priority
+          sizes="(max-width: 1280px) 250px, (max-width: 1535px) 300px, 400px"
         />
       </div>
 
@@ -111,6 +115,8 @@ export default function AnimatedLogo({ onComplete }: AnimatedLogoProps) {
           alt=""
           fill
           className="object-contain"
+          priority
+          sizes="(max-width: 1280px) 250px, (max-width: 1535px) 300px, 400px"
         />
       </div>
 
@@ -121,6 +127,8 @@ export default function AnimatedLogo({ onComplete }: AnimatedLogoProps) {
           alt=""
           fill
           className="object-contain"
+          priority
+          sizes="(max-width: 1280px) 250px, (max-width: 1535px) 300px, 400px"
         />
       </div>
     </div>

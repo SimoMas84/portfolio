@@ -34,7 +34,10 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+    <nav
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
+      aria-label="Main navigation"
+    >
       <div className="bg-light-surface/10 backdrop-blur-lg border border-light rounded-xl px-6 py-5 shadow-lg">
         <div className="flex items-center gap-2">
           {/* Navigation Links */}
@@ -47,6 +50,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <TransitionLink
                     href={link.href}
+                    aria-label={link.label}
                     className={`flex items-center text-lg lg:gap-1 px-2 py-2 rounded-lg transition-all duration-300
                       ${
                         isActive
