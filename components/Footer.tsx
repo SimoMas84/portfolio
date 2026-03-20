@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Social Links */}
         <div className="flex items-center justify-center gap-6 mb-6">
           <Link
-            href="mailto:simone.massaccesi@hotmail.it"
+            href="mailto:mail@simonemassaccesi.it"
             className="text-light-secondary hover:text-light-primary transition-colors"
             aria-label="Email"
           >
@@ -28,7 +28,7 @@ export default function Footer() {
           </Link>
 
           <Link
-            href="https://www.github.com/SimoMas84"
+            href="https://www.github.com/simonemassaccesi"
             target="_blank"
             rel="noopener noreferrer"
             className="text-light-secondary hover:text-light-primary transition-colors"

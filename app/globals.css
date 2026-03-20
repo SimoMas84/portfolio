@@ -50,7 +50,7 @@ body {
   --color-light-text-primary: #1f2937;
   --color-light-text-secondary: #4b5563;
   --color-light-border: rgba(255, 255, 255, 0.15);
-  --color-light-accent: #3b82f6;
+  --color-light-accent: #3455ff;
 
   /* Colors Dark Mode */
   --color-dark-bg: #0f172a;
@@ -58,7 +58,7 @@ body {
   --color-dark-text-primary: #f1f5f9;
   --color-dark-text-secondary: #cbd5e1;
   --color-dark-border: rgba(255, 255, 255, 0.15);
-  --color-dark-accent: #60a5fa;
+  --color-dark-accent: #3455ff;
 
   /* Brand Gradient */
   --gradient-brand: linear-gradient(to right, #3455ff, #96b1f8, #6bcbc6);

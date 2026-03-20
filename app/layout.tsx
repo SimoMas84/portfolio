@@ -7,6 +7,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { TransitionProvider } from "./context/TransitionContext";
 import PageTransition from "@/components/PageTransition";
 import ParticlesBackground from "@/components/ParticlesBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 // ============================================
 // Metadata (SEO)
@@ -145,6 +146,7 @@ export default function RootLayout({
           </TransitionProvider>
         </ThemeProvider>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

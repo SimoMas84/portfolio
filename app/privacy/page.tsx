@@ -158,10 +158,10 @@ export default function Privacy() {
           <p className="text-light-secondary leading-relaxed mt-4">
             To exercise these rights, contact me at:{" "}
             <a
-              href="mailto:simone.massaccesi@hotmail.it"
+              href="mailto:mail@simonemassaccesi.it"
               className="text-blue-500 hover:underline"
             >
-              simone.massaccesi@hotmail.it
+              mail@simonemassaccesi.it
             </a>
           </p>
         </section>
@@ -215,10 +215,10 @@ export default function Privacy() {
           <p className="text-light-secondary mt-4">
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:simone.massaccesi@hotmail.it"
+              href="mailto:mail@simonemassaccesi.it"
               className="text-blue-500 hover:underline"
             >
-              simone.massaccesi@hotmail.it
+              mail@simonemassaccesi.it
             </a>
             <br />
             <strong>Location:</strong> Narni, Italy

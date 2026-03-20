@@ -23,8 +23,8 @@ interface ApiResponse {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const CONFIG = {
-  from: 'Portfolio Contact <onboarding@resend.dev>',
-  to: 'simone.massaccesi@hotmail.it',
+  from: 'Portfolio Contact <mail@simonemassaccesi.it>',
+  to: 'mail@simonemassaccesi.it',
 } as const;
 
 // ============================================

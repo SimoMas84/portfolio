@@ -47,6 +47,21 @@ const experiences: Experience[] = [
       "Design, development and maintenance of the website. Responsive and mobile-first application built with Next.js, TypeScript and Tailwind CSS. Optimized for performance, SEO and usability, featuring a modern layout and intuitive navigation.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
+  {
+    id: 4,
+    year: "2026 - Present",
+    title: "Full Stack Developer",
+    company: "Personal Project",
+    description:
+      "Design, development and maintenance of a movie and series tracking app. User management, favorites and watchlists. Real-time updates via Supabase Realtime.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+    ],
+  },
 ];
 
 // ============================================

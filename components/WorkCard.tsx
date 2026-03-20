@@ -40,12 +40,12 @@ export default function WorkCard({
           {/* Content with glassmorphism */}
           <div className="bg-light-surface/10 backdrop-blur-lg p-6 flex flex-col flex-grow">
             {/* Title */}
-            <h3 className="text-xl font-bold mb-2 text-light-secondary">
+            <h3 className="text-xl font-light mb-2 text-light-secondary">
               {title}
             </h3>
 
             {/* Description */}
-            <p className="text-light-secondary text-sm mb-4 flex-grow line-clamp-2">
+            <p className="text-light-secondary font-light text-sm mb-4 flex-grow line-clamp-2">
               {description}
             </p>
 

@@ -31,8 +31,8 @@ const contacts: ContactInfo[] = [
   {
     icon: Mail,
     title: "Email",
-    value: "simone.massaccesi@hotmail.it",
-    href: "mailto:simone.massaccesi@hotmail.it",
+    value: "mail@simonemassaccesi.it",
+    href: "mailto:mail@simonemassaccesi.it",
   },
   {
     icon: Linkedin,
@@ -43,8 +43,8 @@ const contacts: ContactInfo[] = [
   {
     icon: Github,
     title: "GitHub",
-    value: "SimoMas84",
-    href: "https://github.com/SimoMas84",
+    value: "simonemassaccesi",
+    href: "https://github.com/simonemassaccesi",
   },
   {
     icon: MapPin,

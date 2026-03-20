@@ -159,10 +159,10 @@ export default function Cookies() {
           <p className="text-light-secondary leading-relaxed">
             If you have questions about this Cookie Policy, contact me at:{" "}
             <a
-              href="mailto:simone.massaccesi@hotmail.it"
+              href="mailto:mail@simonemassaccesi.it"
               className="text-blue-500 hover:underline"
             >
-              simone.massaccesi@hotmail.it
+              mail@simonemassaccesi.it
             </a>
           </p>
         </section>

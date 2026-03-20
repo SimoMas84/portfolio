@@ -15,9 +15,6 @@ export default function ExperienceCard({
 }: ExperienceCardProps) {
   return (
     <div className="relative group">
-      {/* Gradient border */}
-      {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity" /> */}
-
       {/* Card content */}
       <div className="relative bg-light-surface/10 border border-light backdrop-blur-lg p-6 rounded-xl">
         {/* Year */}
@@ -26,15 +23,11 @@ export default function ExperienceCard({
         </div>
 
         {/* Title & Company */}
-        <h3 className="text-xl font-bold text-light-primary mb-1">
-          {title}
-        </h3>
-        <p className="text-light-secondary mb-4">
-          {company}
-        </p>
+        <h3 className="text-2xl text-light-primary mb-1">{title}</h3>
+        <p className="text-light-secondary font-light mb-4">{company}</p>
 
         {/* Description */}
-        <p className="text-light-secondary text-sm leading-relaxed mb-4">
+        <p className="text-light-secondary font-extralight leading-relaxed mb-4">
           {description}
         </p>
 
