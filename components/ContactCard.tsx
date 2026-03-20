@@ -16,14 +16,16 @@ export default function ContactCard({
   const cardContent = (
     <>
       {/* Icon */}
-      <div className="p-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600">
+      <div className="p-3 rounded-lg gradient-brand">
         <Icon size={24} className="text-white" />
       </div>
 
       {/* Text */}
       <div>
         <p className="text-light-secondary text-sm">{title}</p>
-        <p className="text-light-primary font-medium">{value}</p>
+        <p className="text-light-primary text-sm md:text-base lg:text-lg">
+          {value}
+        </p>
       </div>
     </>
   );

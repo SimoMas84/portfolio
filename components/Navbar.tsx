@@ -47,14 +47,14 @@ export default function Navbar() {
                 <li key={link.href}>
                   <TransitionLink
                     href={link.href}
-                    className={`flex items-center px-3 py-2 rounded-lg transition-all duration-300
+                    className={`flex items-center text-lg lg:gap-1 px-2 py-2 rounded-lg transition-all duration-300
                       ${
                         isActive
                           ? "bg-blue-500 text-white"
                           : "text-light-primary hover:bg-blue-400/20"
                       }`}
                   >
-                    <Icon size={20} />
+                    <Icon size={24} />
                     <span className="hidden md:inline">{link.label}</span>
                   </TransitionLink>
                 </li>
@@ -68,7 +68,7 @@ export default function Navbar() {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg text-light-primary hover:bg-blue-400/20 transition-all duration-300"
+            className="p-2 rounded-lg text-light-primary hover:bg-blue-400/20 transition-all duration-300 cursor-pointer"
             aria-label="Toggle theme"
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}

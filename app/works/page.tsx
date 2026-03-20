@@ -45,7 +45,7 @@ const projects: Project[] = [
       "Restyling and refactoring website for local bar with menu and events",
     image: "/works/caffe-millennium.jpg",
     url: "https://caffemillennium.vercel.app",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "Motion", "GSAP"],
+    technologies: ["Next.js", "TypeScript", "Tailwind"],
   },
 
   {
@@ -79,11 +79,8 @@ export default function Works() {
       {/* Header - Centered */}
       <div className="text-center mb-12 lg:mb-20 max-w-5xl mx-auto">
         {/* Title with animation */}
-        <h1
-          ref={titleRef as any}
-          className="font-bold mb-4 leading-tight page-title"
-        >
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <h1 ref={titleRef as any} className="mb-4 leading-tight page-title">
+          <span className="gradient-brand bg-clip-text text-transparent">
             Works
           </span>
         </h1>

@@ -56,6 +56,11 @@ export const metadata: Metadata = {
     ],
   },
 
+  // App title for iOS
+  appleWebApp: {
+    title: "SimoMas",
+  },
+
   // Geolocation metadata
   other: {
     "geo.region": "IT-TR", // IT = Italy, TR = Terni province

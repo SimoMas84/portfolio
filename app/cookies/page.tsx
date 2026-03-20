@@ -10,8 +10,8 @@ export default function Cookies() {
     <main className="relative min-h-[calc(100vh-80px)] max-w-4xl mx-auto px-4 lg:px-8 py-40 lg:py-60">
       {/* Header */}
       <div className="mb-12">
-        <h1 className="font-bold mb-4 leading-tight text-4xl lg:text-5xl">
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <h1 className="mb-4 leading-tight text-4xl lg:text-5xl">
+          <span className="gradient-brand bg-clip-text text-transparent">
             Cookie Policy
           </span>
         </h1>

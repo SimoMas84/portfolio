@@ -122,6 +122,21 @@ export default function Home() {
         type: "chars",
       });
 
+      const allChars = [...splitName.chars, ...splitSurname.chars];
+      const totalChars = allChars.length;
+      allChars.forEach((char, index) => {
+        const position = (index / (totalChars - 1)) * 100;
+        gsap.set(char, {
+          backgroundImage:
+            "linear-gradient(to right, #3455ff, #96b1f8, #6bcbc6)",
+          backgroundSize: `${totalChars * 100}%`,
+          backgroundPosition: `${position}%`,
+          backgroundClip: "text",
+          webkitBackgroundClip: "text",
+          color: "transparent",
+        });
+      });
+
       // Animate letters of "Simone"
       tl.from(
         splitName.chars,
@@ -168,9 +183,9 @@ export default function Home() {
 
   return (
     <div className="-my-40 relative max-w-[2560px] mx-auto px-4 lg:px-16">
-      <div className="flex flex-col xl:flex-row items-center justify-center xl:gap-[10dvw] text-center xl:text-left min-h-[calc(100dvh-100px)] xl:px-16">
+      <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-[12dvw] text-center xl:text-left min-h-[calc(100dvh-100px)] xl:px-16">
         {/* Logo */}
-        <div className="order-1 xl:order-2 flex-shrink-0 w-[50vw] min-w-[200px] max-w-[300px] xl:w-[400px] xl:max-w-[26vw] 2xl:w-[600px]">
+        <div className="order-1 xl:order-2 flex-shrink-0 w-[40vw] min-w-[150px] max-w-[250px] xl:w-[300px] xl:max-w-[20vw] 2xl:w-[400px]">
           <div ref={logoRef} className="relative aspect-square cursor-default">
             <AnimatedLogo />
           </div>
@@ -179,11 +194,12 @@ export default function Home() {
         {/* Text */}
         <div className="order-2 xl:order-1 flex-shrink-0 space-y-2 xl:space-y-4">
           <h1 className="leading-tight hero-title">
-            <span ref={nameRef} className="block text-blue-500">
-              Simone
+            {/* Wrapper con gradiente */}
+            <span className="block gradient-brand bg-clip-text text-transparent">
+              <span ref={nameRef}>Simone</span>
             </span>
-            <span ref={surnameRef} className="block text-blue-500">
-              Massaccesi
+            <span className="block gradient-brand bg-clip-text text-transparent">
+              <span ref={surnameRef}>Massaccesi</span>
             </span>
           </h1>
           {/* Fixed height wrapper to prevent layout shift during scramble */}
